@@ -10,6 +10,8 @@ function App() {
           <code>App.js</code> is the entrypoint to your app.
         </p>
         <h2>HAPPY HACKING!</h2>
+        <h3>MegaBeats</h3>
+        <p>get the party started.</p>
         <a
           className="App-link"
           href="https://reactjs.org"
