@@ -11,6 +11,7 @@ import S1 from './components/sounds/Clap5.wav';
 import S2 from './components/sounds/Kik6.wav';
 import S3 from './components/sounds/Hats41.wav';
 import S4 from './components/sounds/AltSD6.wav';
+import SoundCheckBox from './components/Tones/SoundCheckBox';
 
 function App() {
 	return (
@@ -38,6 +39,12 @@ function App() {
 			<SoundButton name="S2" sound={S2} />
 			<SoundButton name="S3" sound={S3} />
 			<SoundButton name="S4" sound={S4} />
+			<hr />
+			<p>Check box to trigger sounds</p>
+			<SoundCheckBox sound={S1} />
+			<SoundCheckBox sound={S2} />
+			<SoundCheckBox sound={S3} />
+			<SoundCheckBox sound={S4} />
 		</div>
 	);
 }
