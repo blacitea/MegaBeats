@@ -4,6 +4,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Checkboxes from './components/checkboxes';
 import './styles/index.css';
 import HelloSound from './components/Tones/hellosound';
+import SoundButton from './components/Tones/SoundButton';
+
+//Clips
+import S1 from './components/sounds/Clap5.wav';
+import S2 from './components/sounds/Kik6.wav';
+import S3 from './components/sounds/Hats41.wav';
+import S4 from './components/sounds/AltSD6.wav';
 
 function App() {
 	return (
@@ -27,6 +34,10 @@ function App() {
 			</a>
 			<Checkboxes />
 			<HelloSound />
+			<SoundButton name="S1" sound={S1} />
+			<SoundButton name="S2" sound={S2} />
+			<SoundButton name="S3" sound={S3} />
+			<SoundButton name="S4" sound={S4} />
 		</div>
 	);
 }
