@@ -17,24 +17,48 @@ import SoundCheckBox from './components/Tones/SoundCheckBox';
 function App() {
 	return (
 		<div className="App">
-			<img src={logo} className="App-logo" alt="logo" />
 			<p>
+				<img src={logo} className="App-logo" alt="logo" />
 				<code>App.js</code> is the entrypoint to your app.
 			</p>
 			<h2>HAPPY HACKING!</h2>
 			<h3>MegaBeats</h3>
-			<p>get the party started.</p>
-			<p>Just added checkboxes to show how eaasy it is</p>
-			<Checkbox />
+			<p>Click the link below to see the code in full</p>
 			<a
 				className="App-link"
-				href="https://reactjs.org"
+				href="https://github.com/blacitea/MegaBeats"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				Learn React
+				GitHub Repo
 			</a>
-			<Checkboxes />
+			<div>
+				Symbols
+				<>
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+				</>
+			</div>
+			<div>
+				High-Hat
+				<>
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+				</>
+			</div>
+			<div>
+				Snare
+				<>
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+					<Checkbox color="primary" />
+				</>
+			</div>
 			<HelloSound />
 			<SoundButton name="S1" sound={S1} />
 			<SoundButton name="S2" sound={S2} />
