@@ -6,23 +6,24 @@ export const SoundCheckBox = props => {
 	const [isLoaded, setLoaded] = useState(false);
 	const [isChecked, setChecked] = useState(false);
 	const sampler = useRef(null);
-	const A1 = props.sound;
+	const A2 = props.sound;
 
 	useEffect(() => {
+		// console.log(props.key);
 		sampler.current = new Sampler(
-			{ A1 },
+			{ A2 },
 			{
 				onload: () => {
 					setLoaded(true);
 				},
 			}
 		).toDestination();
-	}, [A1]);
+	}, [A2, props.key]);
 
 	const handleCheck = event => {
 		setChecked(prev => {
 			if (!prev) {
-				sampler.current.triggerAttack('A1');
+				sampler.current.triggerAttack('A2');
 			}
 			return !prev;
 		});
