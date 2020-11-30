@@ -32,7 +32,7 @@ function App() {
 			>
 				GitHub Repo
 			</a>
-			<div>
+			{/* <div>
 				Symbols
 				<>
 					<Checkbox color="primary" />
@@ -70,7 +70,7 @@ function App() {
 			<SoundCheckBox sound={S2} />
 			<SoundCheckBox sound={S3} />
 			<SoundCheckBox sound={S4} />
-			<hr />
+			<hr /> */}
 			<Beats />
 		</div>
 	);
