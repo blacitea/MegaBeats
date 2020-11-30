@@ -5,6 +5,7 @@ import Checkboxes from './components/checkboxes';
 import './styles/index.css';
 import HelloSound from './components/Tones/hellosound';
 import SoundButton from './components/Tones/SoundButton';
+import Beats from './components/Tones/Beats';
 
 //Clips
 import S1 from './components/sounds/Clap5.wav';
@@ -45,6 +46,8 @@ function App() {
 			<SoundCheckBox sound={S2} />
 			<SoundCheckBox sound={S3} />
 			<SoundCheckBox sound={S4} />
+			<hr />
+			<Beats />
 		</div>
 	);
 }
