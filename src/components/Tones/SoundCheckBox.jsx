@@ -18,7 +18,7 @@ export const SoundCheckBox = props => {
 				},
 			}
 		).toDestination();
-	}, [A2, props.key]);
+	}, [A2]);// Removed props.key from useEffect dependencies
 
 	const handleCheck = event => {
 		setChecked(prev => {
