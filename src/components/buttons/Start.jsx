@@ -22,8 +22,17 @@ const Start = () => {
 		},
 	});
 
+	const useStyles = makeStyles(theme => ({
+		button: {
+			margin: theme.spacing(1),
+			minWidth: 120,
+		},
+	}));
+	const classes = useStyles();
+
 	return play ? (
 		<Button
+			className={classes.button}
 			variant="contained"
 			size="xlarge"
 			color="secondary"
@@ -35,6 +44,7 @@ const Start = () => {
 	) : (
 		<ThemeProvider theme={theme}>
 			<Button
+				className={classes.button}
 				variant="contained"
 				size="xlarge"
 				color="primary"
