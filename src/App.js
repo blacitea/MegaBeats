@@ -14,6 +14,9 @@ import S3 from './components/sounds/Hats41.wav';
 import S4 from './components/sounds/AltSD6.wav';
 import SoundCheckBox from './components/Tones/SoundCheckBox';
 
+import Start from './components/buttons/Start';
+import BPM from './components/buttons/BPM';
+
 function App() {
 	return (
 		<div className="App">
@@ -72,6 +75,9 @@ function App() {
 			<SoundCheckBox sound={S4} />
 			<hr /> */}
 			<Beats />
+			<br />
+			<Start />
+			<BPM />
 		</div>
 	);
 }
