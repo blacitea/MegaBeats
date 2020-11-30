@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+import StopIcon from '@material-ui/icons/Stop';
 
 import green from '@material-ui/core/colors/green';
 import {
@@ -27,10 +27,10 @@ const Start = () => {
 			variant="contained"
 			size="xlarge"
 			color="secondary"
-			endIcon={<PauseCircleOutlineIcon fontSize="large" />}
+			endIcon={<StopIcon fontSize="large" />}
 			onClick={handleClick}
 		>
-			Pause
+			Stop
 		</Button>
 	) : (
 		<ThemeProvider theme={theme}>
