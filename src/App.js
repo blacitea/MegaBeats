@@ -6,6 +6,8 @@ import './styles/index.css';
 import HelloSound from './components/Tones/hellosound';
 import SoundButton from './components/Tones/SoundButton';
 import Beats from './components/Tones/Beats';
+import * as Tone from "tone";
+import styled from "styled-components";
 
 //Clips
 import S1 from './components/sounds/Clap5.wav';
@@ -16,6 +18,36 @@ import SoundCheckBox from './components/Tones/SoundCheckBox';
 
 import Start from './components/buttons/Start';
 import BPM from './components/buttons/BPM';
+
+// ==
+const player = new Tone.Player(
+  "https://tonejs.github.io/audio/drum-samples/breakbeat.mp3"
+).toDestination();
+player.loop = true;
+player.autostart = false;
+
+const Container = styled.div`
+  max-width: 800px;
+  margin: auto;
+  background: linear-gradient(to bottom right, #222, #0a0a0a);
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ButtonContainer = styled.div`
+  flex: 1;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  padding: 0px 20px 10px;
+  display: flex;
+`;
+//  ==
+
+
 
 function App() {
 	return (
@@ -35,51 +67,16 @@ function App() {
 			>
 				GitHub Repo
 			</a>
-			{/* <div>
-				Symbols
-				<>
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-				</>
-			</div>
-			<div>
-				High-Hat
-				<>
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-				</>
-			</div>
-			<div>
-				Snare
-				<>
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-					<Checkbox color="primary" />
-				</>
-			</div>
-			<HelloSound />
-			<SoundButton name="S1" sound={S1} />
-			<SoundButton name="S2" sound={S2} />
-			<SoundButton name="S3" sound={S3} />
-			<SoundButton name="S4" sound={S4} />
-			<hr />
-			<p>Check box to trigger sounds</p>
-			<SoundCheckBox sound={S1} />
-			<SoundCheckBox sound={S2} />
-			<SoundCheckBox sound={S3} />
-			<SoundCheckBox sound={S4} />
-			<hr /> */}
-			<Beats />
+			<Container>
+				<ButtonContainer>
+					<Beats />
+
+				</ButtonContainer>
+			</Container>
 			<br />
 			<Start />
 			<BPM />
 		</div>
 	);
 }
-
 export default App;
