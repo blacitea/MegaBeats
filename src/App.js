@@ -6,6 +6,8 @@ import './styles/index.css';
 import HelloSound from './components/Tones/hellosound';
 import SoundButton from './components/Tones/SoundButton';
 import Beats from './components/Tones/Beats';
+import StepSequencer from "./components/Tones/StepSequencer";
+
 import * as Tone from "tone";
 import styled from "styled-components";
 
@@ -124,7 +126,30 @@ function App() {
   const stepsRef = useRef(stepState);
   stepsRef.current = stepState;
   const currentStepRef = useRef(currentStep);
-  currentStepRef.current = currentStep;
+	currentStepRef.current = currentStep;
+	
+	//This is borrowed code. Needs unravelling;
+	useEffect(() => {
+    Tone.Transport.scheduleRepeat(function (time) {
+      Object.keys(buffersRef.current).forEach((b) => {
+        let targetStep = stepsRef.current[b][currentStepRef.current];
+        let targetBuffer = buffersRef.current[b];
+
+        if (targetStep === 1) {
+          targetBuffer.start(time);
+        } else if (targetStep === 2) {
+          targetBuffer.start();
+          targetBuffer.start("+64n");
+          targetBuffer.start("+32n");
+        }
+      });
+
+      setCurrentStepState((step) => {
+        return step > 14 ? 0 : step + 1;
+      });
+    }, "16n");
+	}, [config]);
+	// end of borrowd code
 
 	// Play controls;
 	useEffect(() => {
@@ -137,32 +162,37 @@ function App() {
 	}, [start]);
 	
 	return (
-		<div className="App">
-			<p>
-				<img src={logo} className="App-logo" alt="logo" />
-				<code>App.js</code> is the entrypoint to your app.
-			</p>
-			<h2>HAPPY HACKING!</h2>
-			<h3>MegaBeats</h3>
-			<p>Click the link below to see the code in full</p>
-			<a
-				className="App-link"
-				href="https://github.com/blacitea/MegaBeats"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				GitHub Repo
-			</a>
-			<Container>
-				<ButtonContainer>
-					<Beats />
-
-				</ButtonContainer>
-			</Container>
-			<br />
-			<Start />
-			<BPM />
-		</div>
-	);
+    <div className="App">
+      <p>
+        <img src={logo} className="App-logo" alt="logo" />
+        <code>App.js</code>
+      </p>
+      <h2>HAPPY HACKING!</h2>
+      <h3>MegaBeats</h3>
+      <p>Click the link below to see the code in full</p>
+      <a
+        className="App-link"
+        href="https://github.com/blacitea/MegaBeats"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub Repo
+      </a>
+      <Container>
+        <StepSequencer
+          config={config}
+          currentStep={currentStepRef.current}
+          playing={start}
+          setBuffers={setBuffers}
+        />
+        <ButtonContainer>
+          <Beats />
+        </ButtonContainer>
+      </Container>
+      <br />
+      <Start />
+      <BPM />
+    </div>
+  );
 }
 export default App;

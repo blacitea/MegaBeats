@@ -31,8 +31,6 @@ export default function Start() {
 	}));
 	const classes = useStyles();
 
-	// Use wheelers' useStartJs to update this component -> play /setPlay
-
 	return play ? (
 		<Button
 			className={classes.button}
