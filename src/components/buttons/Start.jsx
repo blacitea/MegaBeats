@@ -11,11 +11,12 @@ import {
 	makeStyles,
 } from '@material-ui/core/styles';
 
-const Start = () => {
+export default function Start() {
 	const [play, setPlay] = useState(false);
-	const handleClick = () => {
+	const togglePlay = () => {
 		setPlay(!play);
 	};
+	// below is just styling
 	const theme = createMuiTheme({
 		palette: {
 			primary: green,
@@ -30,6 +31,8 @@ const Start = () => {
 	}));
 	const classes = useStyles();
 
+	// Use wheelers' useStartJs to update this component -> play /setPlay
+
 	return play ? (
 		<Button
 			className={classes.button}
@@ -37,7 +40,8 @@ const Start = () => {
 			size="xlarge"
 			color="secondary"
 			endIcon={<StopIcon fontSize="large" />}
-			onClick={handleClick}
+			play={play}
+			onClick={togglePlay}
 		>
 			Stop
 		</Button>
@@ -49,12 +53,11 @@ const Start = () => {
 				size="xlarge"
 				color="primary"
 				endIcon={<PlayCircleOutlineIcon fontSize="large" />}
-				onClick={handleClick}
+				play={play}
+				onClick={togglePlay}
 			>
 				Start
 			</Button>
 		</ThemeProvider>
 	);
 };
-
-export default Start;

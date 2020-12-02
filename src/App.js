@@ -117,6 +117,8 @@ function App() {
 	const [buffers, setBuffers] = useState({});
 	const [currentStep, setCurrentStepState] = useState(0);
 
+	const [start, startButton] = useState();
+
 	const buffersRef = useRef(buffers);
   buffersRef.current = buffers;
   const stepsRef = useRef(stepState);
