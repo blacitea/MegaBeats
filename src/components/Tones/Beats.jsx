@@ -16,30 +16,31 @@ const Beats = props => {
 		E1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 		F1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	});
+	const [isChecked, setChecked] = useState(false);
 	return (
 		<section>
 			{beats.A1.map((beat, index) => (
-				<SoundCheckBox sound={S1} key={`A1_${index}`} />
+				<SoundCheckBox sound={S1} key={`A1_${index}`} checked={isChecked} />
 			))}
 			<hr />
 			{beats.B1.map((beat, index) => (
-				<SoundCheckBox sound={S2} key={`B1_${index}`} />
+				<SoundCheckBox sound={S2} key={`B1_${index}`} checked={isChecked} />
 			))}
 			<hr />
 			{beats.C1.map((beat, index) => (
-				<SoundCheckBox sound={S3} key={`C1_${index}`} />
+				<SoundCheckBox sound={S3} key={`C1_${index}`} checked={isChecked} />
 			))}
 			<hr />
 			{beats.D1.map((beat, index) => (
-				<SoundCheckBox sound={S4} key={`D1_${index}`} />
+				<SoundCheckBox sound={S4} key={`D1_${index}`} checked={isChecked} />
 			))}
 			<hr />
 			{beats.E1.map((beat, index) => (
-				<SoundCheckBox sound={S5} key={`E1_${index}`} />
+				<SoundCheckBox sound={S5} key={`E1_${index}`} checked={isChecked} />
 			))}
 			<hr />
 			{beats.F1.map((beat, index) => (
-				<SoundCheckBox sound={S6} key={`F1_${index}`} />
+				<SoundCheckBox sound={S6} key={`F1_${index}`} checked={isChecked} />
 			))}
 		</section>
 	);
